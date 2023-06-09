@@ -1,0 +1,113 @@
+$bgc: #f2bebe;
+$fc: #026670;
+$input-bgc: #d2d5dd;
+$input-bgc-focus: #fcfbb0;
+
+$breakpoint-md: 768px;
+$breakpoint-sm: 425px;
+
+.wrapper {
+  background-color: $bgc;
+  color: $fc;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    width: 50%;
+
+    @media screen and (max-width: $breakpoint-md) {
+      width: 80%;
+      font-size: 1.2rem;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 1em;
+    }
+
+    label {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 800;
+      padding: 0 1em;
+    }
+    input {
+      background-color: $input-bgc;
+      border-radius: 2em;
+      padding: 1em;
+      border: 3px solid $fc;
+      outline: none;
+
+      font-size: 1.5rem;
+
+      @media screen and (max-width: $breakpoint-md) {
+        font-size: 1.2rem;
+        padding: 0.7em;
+      }
+
+      color: $fc;
+
+      &::placeholder {
+        opacity: 0.7;
+      }
+      &[placeholder] {
+        text-overflow: ellipsis;
+      }
+      &:focus,
+      :active {
+        background-color: $input-bgc-focus;
+      }
+      &:focus::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+
+  .blocks {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 1em;
+
+    @media screen and (max-width: $breakpoint-md) {
+      width: 80%;
+    }
+    @media screen and (max-width: $breakpoint-sm) {
+      width: 100%;
+      gap: 0.3em;
+    }
+
+    min-height: 1em;
+    .block {
+      width: 100%;
+      height: 1em;
+      border-radius: 2rem;
+      background-color: $input-bgc;
+      transition: background-color 0.2s ease;
+      &.easy,
+      &.short {
+        background-color: #ff0000;
+      }
+      &.medium {
+        background-color: #ffff00;
+      }
+      &.strong {
+        background-color: #008000;
+      }
+    }
+  }
+}
